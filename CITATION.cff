@@ -2,6 +2,8 @@ cff-version: 1.2.0
 message: "If you use this code, please cite the paper below."
 title: "Flow Matching Reinforcement Learning via SDE Inference"
 type: software
+repository-code: "https://github.com/MAGICS-LAB/flow_sde"
+url: "https://magics-lab.github.io/flow_sde/"
 license:
   - Apache-2.0
   - MIT
