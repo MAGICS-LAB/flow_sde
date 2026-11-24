@@ -1,0 +1,52 @@
+{
+  "seed": 42,
+  "device": null,
+  "mixed_precision": false,
+  "output_dir": "results/CIFAR_Exp_seed42",
+  "classifier_config": "configs/classifier.json",
+  "checkpoint_manifest": "results/fm_pretrain/checkpoint_manifest.json",
+  "pretrain_config": "configs/fm_cifar.json",
+  "selections": [
+    "weak",
+    "medium",
+    "strong"
+  ],
+  "reward": {
+    "type": "prob"
+  },
+  "data": {
+    "data_dir": "data",
+    "val_fraction": 0.1,
+    "num_workers": 0,
+    "val_batch_size": 128,
+    "channels": 3,
+    "image_size": 32,
+    "fm_loss_seed": 30123,
+    "fm_loss_samples_per_class": 50
+  },
+  "sampler": {
+    "num_steps": 20,
+    "train_num_steps": 10,
+    "lambda_type": "flow_grpo",
+    "lambda_scale": 0.7,
+    "path_orientation": "noise_to_data"
+  },
+  "train": {
+    "group_size": 32,
+    "updates": 80,
+    "policy_epochs": 1,
+    "lr": 4e-06,
+    "weight_decay": 0.0,
+    "clip_ratio": 0.2,
+    "grad_clip": 1.0,
+    "adv_clip": 3.0,
+    "beta_kl": 0.05,
+    "monitor_num_samples": 500,
+    "monitor_batch_size": 50,
+    "fixed_monitor_inputs": true,
+    "monitor_seed": 50123,
+    "monitor_eval_fm_loss": true,
+    "monitor_fm_max_batches": 0,
+    "max_val_batches": 0
+  }
+}

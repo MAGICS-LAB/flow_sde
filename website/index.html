@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flow Matching Reinforcement Learning via SDE Inference</title>
+  <meta name="description" content="A unified framework for flow matching reinforcement learning: stochastic SDE training, deterministic ODE deployment, and FMPO-CPPO.">
+  <meta name="theme-color" content="#861438">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Flow Matching Reinforcement Learning via SDE Inference">
+  <meta property="og:description" content="Stochastic training. Deterministic deployment. A unified framework and theoretical guarantees for flow matching RL.">
+  <meta property="og:url" content="{{SITE_URL}}">
+  <meta property="og:image" content="{{SITE_URL}}assets/framework.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="{{SITE_URL}}">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Page sections">
+      <a class="wordmark" href="#top">Flow RL via SDE Inference</a>
+      <div class="nav-links"><a href="#framework">Framework</a><a href="#theory">Theory</a><a href="#experiments">Experiments</a><a href="#citation">Citation</a></div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero container" id="top" aria-labelledby="paper-title">
+      <p class="eyebrow">Flow matching &middot; Reinforcement learning</p>
+      <h1 id="paper-title">Flow Matching Reinforcement Learning via SDE Inference</h1>
+      <div class="authors" aria-label="Authors in paper order">
+        <span>Maojiang Su<sup>1,*</sup></span><span>Tsung-En Lin<sup>2,*</sup></span><span>Jerry Yao-Chieh Hu<sup>1,*</sup></span><span>Guo Ye<sup>1</sup></span><span>Haoran Lu<sup>1</sup></span><span>Shang Wu<sup>1</sup></span><span>Zhaoran Wang<sup>1</sup></span><span>Han Liu<sup>1</sup></span>
+      </div>
+      <p class="affiliations"><sup>1</sup> Northwestern University <span aria-hidden="true">&middot;</span> <sup>2</sup> National Taiwan University</p>
+      <p class="contribution">* Equal contribution</p>
+      <div class="resource-links" aria-label="Research resources">
+        <a class="button primary" href="paper.pdf" target="_blank" rel="noopener">Read the paper</a>
+        <a class="button" href="{{REPOSITORY_URL}}" target="_blank" rel="noopener">Code</a>
+        <a class="button" href="{{REPOSITORY_URL}}/blob/main/docs/REPRODUCIBILITY.md" target="_blank" rel="noopener">Reproduce results</a>
+        <a class="button" href="#citation">BibTeX</a>
+      </div>
+      <p class="hero-summary"><strong>Train with stochastic SDE inference. Deploy with the original ODE.</strong> A unified framework connects flow-based RL methods and explains when their improvements transfer to deterministic deployment.</p>
+      <p class="version">Manuscript updated November 18, 2026</p>
+    </section>
+
+    <section class="container framework-section" id="framework" aria-labelledby="framework-title">
+      <div class="section-heading"><p class="eyebrow">The framework</p><h2 id="framework-title">An inference process becomes an RL policy.</h2></div>
+      <figure class="framework-figure">
+        <a href="assets/framework.png" target="_blank" rel="noopener" aria-label="View the framework schematic at full size"><img src="assets/framework.png" width="1410" height="450" alt="SDE inference defines a Gaussian inner MDP. A terminal reward gives flow matching RL, and composition with an environment gives flow policy optimization." fetchpriority="high"></a>
+        <figcaption>Stochastic inference defines an inner MDP. The same construction supports generative-model fine-tuning and flow-policy optimization in an environment.</figcaption>
+      </figure>
+      <div class="two-column narrative">
+        <div><h3>Reward fine-tuning of flow models</h3><p>Each stochastic inference transition is an action in an inner MDP. A terminal reward guides policy-gradient updates, including GRPO, without an external environment.</p></div>
+        <div><h3>Flow policies in an environment</h3><p>The inner inference MDP is composed with the environment MDP. An entire denoising chain produces the action chunk executed in the environment.</p></div>
+      </div>
+      <div class="method-block">
+        <div><p class="eyebrow">Our instantiation</p><h3>FMPO-CPPO learns from the full inference chain.</h3></div>
+        <div><p>ChainPPO combines a clipped surrogate for the complete inference chain with an auxiliary clipped surrogate for individual inference steps. Log-ratios are normalized by the action-chunk dimension.</p>
+          <div class="equation" aria-label="FMPO CPPO objective">J<sub>FMPO-CPPO</sub> = J<sub>chain</sub> + &alpha; J<sub>step</sub></div>
+          <p class="small">The experiments use &alpha; = 0.25, a chain clip of 0.02, a step clip of 0.01, and noise schedule &lambda;<sub>t</sub> = a(1 &minus; t). The normalized ratios are tempered surrogates, as explained in Section 3.3.</p>
+        </div>
+      </div>
+      <details class="method-details"><summary>How existing methods fit the framework</summary>
+        <div class="table-scroll"><table><caption>Representative instantiations</caption><thead><tr><th scope="col">Method</th><th scope="col">Setting</th><th scope="col">Surrogate</th><th scope="col">Noise level &lambda;<sub>t</sub></th></tr></thead><tbody>
+          <tr><th scope="row">Flow-GRPO</th><td>Generative fine-tuning</td><td>GRPO</td><td>a(1 &minus; t)/t</td></tr>
+          <tr><th scope="row">DanceGRPO</th><td>Generative fine-tuning</td><td>GRPO</td><td>Constant</td></tr>
+          <tr><th scope="row">ReinFlow</th><td>Policy optimization</td><td>PPO</td><td>Learnable</td></tr>
+          <tr><th scope="row">Flow-SDE</th><td>Policy optimization</td><td>PPO</td><td>a(1 &minus; t)/t</td></tr>
+          <tr class="ours"><th scope="row">FMPO-CPPO</th><td>Policy optimization</td><td>ChainPPO</td><td>a(1 &minus; t)</td></tr>
+        </tbody></table></div>
+      </details>
+    </section>
+
+    <section class="theory-section" id="theory" aria-labelledby="theory-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Theoretical foundations</p><h2 id="theory-title">When does stochastic training transfer?</h2><p>The analysis separates the inference mismatch from the reward improvement achieved by RL.</p></div>
+        <div class="two-column theory-grid">
+          <article><span class="theorem-label">Correctness &middot; Theorem 4.1</span><h3>Small flow-matching error controls the inference gap.</h3><div class="equation">TV(p<sub>T</sub>, q<sub>T</sub>) &le; O(&radic;&epsilon;)</div><p>When the learned velocity approximates the reference flow well, SDE and ODE inference induce close terminal distributions. Here &epsilon; is the square root of the integrated squared velocity error.</p></article>
+          <article><span class="theorem-label">Performance transfer &middot; Theorem 4.2</span><h3>SDE improvements transfer beyond the mismatch penalty.</h3><div class="equation transfer-equation">J<sub>ODE</sub>(&theta;<sub>k+1</sub>) &ge; J<sub>ODE</sub>(&theta;<sub>k</sub>) + &Delta;<sub>k</sub> &minus; 2R(&delta;<sub>k</sub> + &delta;<sub>k+1</sub>)</div><p>For a bounded terminal reward, deployment improves when the SDE reward gain exceeds the distributional mismatch penalties at the old and new parameters.</p></article>
+        </div>
+        <p class="theory-note">These guarantees hold under the approximation and regularity assumptions in the paper, with early stopping time T &lt; 1. Better pretraining and controlled fine-tuning help keep the mismatch small.</p>
+      </div>
+    </section>
+
+    <section class="container experiments-section" id="experiments" aria-labelledby="experiments-title">
+      <div class="section-heading"><p class="eyebrow">Experimental studies</p><h2 id="experiments-title">From Gaussian bridges to control and images.</h2></div>
+      <article class="experiment"><div class="experiment-heading"><h3>Synthetic validation</h3><span>Sections 5.1&ndash;5.2</span></div><p>Gaussian bridges make the reference velocity available analytically. Varying pretraining quality reveals the SDE&ndash;ODE distribution gap and the reliability of one-step reward transfer.</p>
+        <figure><a href="assets/synthetic.webp" target="_blank" rel="noopener" aria-label="View the synthetic validation plots at full size"><img src="assets/synthetic.webp" width="1888" height="616" alt="TV distance versus flow-matching error, transfer violation rates, and paired SDE and ODE reward trajectories." loading="lazy"></a><figcaption>Published synthetic results: distributional error scaling, transfer violations, and reward trajectories. Original plot labels are reproduced from the paper; the repository documents the error-axis convention.</figcaption></figure>
+      </article>
+      <article class="experiment"><div class="experiment-heading"><h3>Continuous control with FMPO-CPPO</h3><span>Section 5.3</span></div><p>On Ant, Humanoid, and Walker2d, FMPO-CPPO achieves higher evaluation reward than ReinFlow and Flow-SDE, with comparable performance on Hopper. Curves show the mean and one standard deviation across five seeds.</p>
+        <figure><a href="assets/control.webp" target="_blank" rel="noopener" aria-label="View the continuous-control results at full size"><img src="assets/control.webp" width="1888" height="424" alt="ODE evaluation reward curves for Ant-v2, Hopper-v2, Humanoid-v3, and Walker2d-v2, comparing Flow-SDE, ReinFlow, and FMPO-CPPO." loading="lazy"></a><figcaption>Published evaluation curves under ODE deployment. The repository includes all 60 CSVs used to recreate these comparisons.</figcaption></figure>
+      </article>
+      <article class="experiment"><div class="experiment-heading"><h3>CIFAR-10: pretraining quality matters</h3><span>Section 5.4</span></div><p>Weak, Medium, and Strong class-conditional flow models are fine-tuned with SDE GRPO for 80 updates. Better-pretrained models show closer SDE and ODE reward trajectories; bands show one standard deviation over three seeds.</p>
+        <figure><a href="assets/cifar.webp" target="_blank" rel="noopener" aria-label="View the CIFAR-10 results at full size"><img src="assets/cifar.webp" width="1888" height="416" alt="ODE and SDE rewards for weak, medium, and strong CIFAR-10 models, plus validation flow-matching loss during fine-tuning." loading="lazy"></a><figcaption>Reward trajectories and validation conditional flow-matching loss from the paper. Nine original fine-tuning histories are available in the code repository.</figcaption></figure>
+        <div class="violation-summary"><p>ODE reward-decrease rate conditioned on SDE improvement</p><dl><div><dt>Weak</dt><dd>0.467</dd></div><div><dt>Medium</dt><dd>0.419</dd></div><div><dt>Strong</dt><dd>0.413</dd></div></dl><p class="small">Computed on seed-averaged reward trajectories before taking consecutive-update differences, as in the paper.</p></div>
+      </article>
+      <details class="ablation-details"><summary>Auxiliary-loss ablation</summary><p>Removing the step-wise auxiliary term retains similar performance on Ant, Hopper, and Humanoid; the full method performs better on Walker2d.</p><figure><a href="assets/ablation.webp" target="_blank" rel="noopener" aria-label="View the published auxiliary-loss ablation"><img src="assets/ablation.webp" width="1888" height="448" alt="Published FMPO-CPPO versus NoAux ablation curves across four continuous-control tasks." loading="lazy"></a><figcaption>Published ablation from Appendix G. The repository provides the NoAux launcher; the original NoAux run logs were not supplied.</figcaption></figure></details>
+    </section>
+
+    <section class="abstract-section container narrow" id="abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p>We develop a unified framework for flow-based reinforcement learning (RL) grounded in diffusion–flow duality and establish its theoretical foundations. The framework enables RL for deterministic flow matching inference by introducing diffusion stochastic inference dynamics that supports exploration while admitting deterministic deployment. We show that our framework subsumes several existing flow-based RL methods as special cases and inspire effective new methods. Then we provide theoretical foundations for the frameworks by establishing the correctness and performance transfer guarantee. Specifically, we prove that the policies optimized under stochastic dynamics close to deterministic dynamics at deployment when the pretrained model is well-trained. Moreover, we show that the policy improvement achieved under training-time SDE inference transfers to deployment-time ODE inference. Experiments on synthetic and continuous-control tasks validate the theory and demonstrate the proposed algorithms’ effectiveness.</p></section>
+
+    <section class="resources-section" id="resources"><div class="container resources-layout"><div><p class="eyebrow">Research resources</p><h2>Read, inspect, reproduce.</h2><p>The paper and code include the framework, proofs, training entry points, and the available experiment records.</p></div><div class="resource-list"><a href="paper.pdf" target="_blank" rel="noopener"><strong>Paper PDF</strong><span>November 18, 2026 manuscript</span></a><a href="{{REPOSITORY_URL}}" target="_blank" rel="noopener"><strong>GitHub repository</strong><span>Code, configurations, tests, and recorded results</span></a><a href="{{REPOSITORY_URL}}/blob/main/docs/REPRODUCIBILITY.md" target="_blank" rel="noopener"><strong>Reproduction guide</strong><span>Available artifacts, commands, and verification limits</span></a></div></div></section>
+
+    <section class="container narrow citation-section" id="citation" aria-labelledby="citation-title"><div class="citation-heading"><h2 id="citation-title">Citation</h2><button type="button" id="copy-citation">Copy BibTeX</button></div><pre><code id="citation-text">@misc{su2026flowmatchingrl,
+  title  = {Flow Matching Reinforcement Learning via SDE Inference},
+  author = {Su, Maojiang and Lin, Tsung-En and Hu, Jerry Yao-Chieh and Ye, Guo and Lu, Haoran and Wu, Shang and Wang, Zhaoran and Liu, Han},
+  year   = {2026},
+  note   = {Manuscript updated November 18, 2026}
+}</code></pre><div class="citation-footer"><a href="citation.bib" download>Download BibTeX</a><span id="copy-status" role="status" aria-live="polite"></span></div></section>
+  </main>
+  <footer class="site-footer"><div class="container"><p>Flow Matching Reinforcement Learning via SDE Inference</p><p>Project-page lineage: <a href="https://nerfies.github.io/">Nerfies</a> &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>. Paper and code retain their respective rights and licenses.</p></div></footer>
+</body>
+</html>

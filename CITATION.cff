@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Flow Matching Reinforcement Learning via SDE Inference"
+type: software
+license:
+  - Apache-2.0
+  - MIT
+authors:
+  - given-names: Maojiang
+    family-names: Su
+  - given-names: Tsung-En
+    family-names: Lin
+  - given-names: Jerry Yao-Chieh
+    family-names: Hu
+  - given-names: Guo
+    family-names: Ye
+  - given-names: Haoran
+    family-names: Lu
+  - given-names: Shang
+    family-names: Wu
+  - given-names: Zhaoran
+    family-names: Wang
+  - given-names: Han
+    family-names: Liu
+preferred-citation:
+  type: article
+  title: "Flow Matching Reinforcement Learning via SDE Inference"
+  year: 2026
+  authors:
+    - given-names: Maojiang
+      family-names: Su
+    - given-names: Tsung-En
+      family-names: Lin
+    - given-names: Jerry Yao-Chieh
+      family-names: Hu
+    - given-names: Guo
+      family-names: Ye
+    - given-names: Haoran
+      family-names: Lu
+    - given-names: Shang
+      family-names: Wu
+    - given-names: Zhaoran
+      family-names: Wang
+    - given-names: Han
+      family-names: Liu

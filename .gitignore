@@ -1,0 +1,52 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.conda-env/
+
+# Operating system and editor files
+.DS_Store
+._*
+__MACOSX/
+.idea/
+.vscode/
+
+# Downloaded artifacts and new training runs
+data/
+log/
+logs/
+wandb/
+wandb_offline*/
+outputs/
+multirun/
+seed_search_results/
+param_search_results/
+*.pt
+*.pth
+*.ckpt
+
+# Recreated figures and measurements
+/figures/
+/MANIFEST.json
+NumericalExp/*.pdf
+NumericalExp/*_results.json
+FMPO_Evaluation/*_evaluation.pdf
+FMPO_Evaluation/*_abl.pdf
+CIFAR32Exp/results/*
+!CIFAR32Exp/results/CIFAR_Exp_seed42/
+!CIFAR32Exp/results/CIFAR_Exp_seed43/
+!CIFAR32Exp/results/CIFAR_Exp_seed44/
+CIFAR32Exp/results/CIFAR_Exp_seed*/**/*
+!CIFAR32Exp/results/CIFAR_Exp_seed*/weak/
+!CIFAR32Exp/results/CIFAR_Exp_seed*/medium/
+!CIFAR32Exp/results/CIFAR_Exp_seed*/strong/
+!CIFAR32Exp/results/CIFAR_Exp_seed*/**/history.jsonl
+
+# Supplied FMPO_Evaluation/exp_data CSVs and docs/paper.pdf are versioned.
+
+# Built GitHub Pages artifact
+/.site/

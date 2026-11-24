@@ -1,0 +1,14 @@
+name: cifar-fm-grpo
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - torch>=2.0
+      - torchvision>=0.15
+      - numpy>=1.24
+      - matplotlib>=3.7
+      - tqdm>=4.65
+      - timm>=0.9
+      - huggingface_hub>=0.20

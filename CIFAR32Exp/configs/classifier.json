@@ -1,0 +1,52 @@
+{
+  "seed": 123,
+  "device": null,
+  "mixed_precision": false,
+  "output_dir": "results/classifier",
+  "data": {
+    "data_dir": "data",
+    "val_fraction": 0.1,
+    "num_workers": 0
+  },
+  "model": {
+    "in_channels": 3,
+    "base_channels": 64,
+    "num_classes": 10
+  },
+  "train": {
+    "batch_size": 256,
+    "epochs": 8,
+    "lr": 0.001,
+    "weight_decay": 0.0001
+  },
+  "eval": {
+    "batch_size": 256
+  },
+  "allow_fallback_classifier": false,
+  "expected_checkpoint_sha256": null,
+  "pretrained_candidates": [
+    {
+      "type": "hf_state_dict",
+      "repo_id": "xiaoyancong/torchvision-resnet18-cifar10",
+      "filename": "resnet18-cifar10.ckpt",
+      "arch": "torchvision_resnet18",
+      "num_classes": 10,
+      "preprocess_mode": "unit_interval"
+    },
+    {
+      "type": "hf_state_dict",
+      "repo_id": "edadaltocg/resnet18_cifar10",
+      "filename": "pytorch_model.bin",
+      "arch": "torchvision_resnet18",
+      "num_classes": 10,
+      "preprocess_mode": "unit_interval"
+    },
+    {
+      "type": "timm",
+      "model_name": "hf-hub:timm/resnet18_cifar10",
+      "pretrained": true,
+      "num_classes": 10,
+      "preprocess_mode": "unit_interval"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "paper_sha256": "38c0fff1bc4b848625ac1c44b91d6f88b4419b04373a33c94327de4f3a5ad2d1",
+  "figures": [
+    {
+      "asset": "assets/synthetic.webp",
+      "pdf_page": 12,
+      "crop_points": [
+        71,
+        60,
+        543,
+        214
+      ],
+      "width": 1888,
+      "height": 616
+    },
+    {
+      "asset": "assets/control.webp",
+      "pdf_page": 15,
+      "crop_points": [
+        71,
+        60,
+        543,
+        166
+      ],
+      "width": 1888,
+      "height": 424
+    },
+    {
+      "asset": "assets/cifar.webp",
+      "pdf_page": 16,
+      "crop_points": [
+        71,
+        57,
+        543,
+        161
+      ],
+      "width": 1888,
+      "height": 416
+    },
+    {
+      "asset": "assets/ablation.webp",
+      "pdf_page": 35,
+      "crop_points": [
+        71,
+        92,
+        543,
+        204
+      ],
+      "width": 1888,
+      "height": 448
+    }
+  ]
+}
