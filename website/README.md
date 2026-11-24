@@ -26,4 +26,4 @@ This continues the existing Nerfies-inspired academic project page. Template lin
 
 ## Interactive recorded-results viewer
 
-The indigo, Manrope typography and rounded experiment panels follow the requested research-lab design. The CIFAR viewer is generated from the nine distributed histories at build time: seed means and population standard deviations are computed for all 80 updates. Controls select Weak/Medium/Strong and the inspected update; they do not simulate new runs. Conditional violations are counted after seed averaging, matching Section 5.4. `?model=weak&update=40` shares a selected view.
+The paper-aligned red palette, Manrope typography, and rounded experiment panels follow the requested research-lab design. The CIFAR viewer is generated from the nine distributed histories at build time: seed means and population standard deviations are computed for all 80 updates. Controls select Weak/Medium/Strong and the inspected update; they do not simulate new runs. Conditional violations are counted after seed averaging, matching Section 5.4. `?model=weak&update=40` shares a selected view.

@@ -32,7 +32,7 @@ async function initializeRewardLab() {
   let selection = names.includes(params.get("model")) ? params.get("model") : "strong";
   const requestedUpdate = Number(params.get("update"));
   let update = Number.isInteger(requestedUpdate) && requestedUpdate >= 1 && requestedUpdate <= 80 ? requestedUpdate : 80;
-  const colors = { ink: "#202335", accent: "#4c4fc8", grid: "#ededf2", muted: "#53576a" };
+  const colors = { ink: "#202335", accent: "#b4232d", grid: "#ededf2", muted: "#53576a" };
   const observations = {
     weak: "The Weak model shows a visible gap between SDE and ODE rewards.",
     medium: "The Medium model brings the SDE and ODE reward trajectories closer.",
@@ -102,7 +102,7 @@ async function initializeRewardLab() {
       ctx.beginPath();
       values.mean.forEach((value, i) => { if (i === 0) ctx.moveTo(x(i), y(value + values.std[i])); else ctx.lineTo(x(i), y(value + values.std[i])); });
       for (let i = 79; i >= 0; i--) ctx.lineTo(x(i), y(values.mean[i] - values.std[i]));
-      ctx.closePath(); ctx.fillStyle = key === "sde" ? "rgba(76,79,200,.10)" : "rgba(32,35,53,.07)"; ctx.fill();
+      ctx.closePath(); ctx.fillStyle = key === "sde" ? "rgba(180,35,45,.10)" : "rgba(32,35,53,.07)"; ctx.fill();
     }
     for (const key of ["ode", "sde"]) {
       ctx.beginPath(); model[key].mean.forEach((value, i) => { if (i === 0) ctx.moveTo(x(i), y(value)); else ctx.lineTo(x(i), y(value)); });
