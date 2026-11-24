@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'website/**'
+      - 'CIFAR32Exp/results/**/history.jsonl'
       - 'docs/paper.pdf'
       - 'docs/assets/framework.png'
       - 'scripts/build_website.py'

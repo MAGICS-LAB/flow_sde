@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flow Matching Reinforcement Learning via SDE Inference</title>
   <meta name="description" content="A unified framework for flow matching reinforcement learning: stochastic SDE training, deterministic ODE deployment, and FMPO-CPPO.">
-  <meta name="theme-color" content="#861438">
+  <meta name="theme-color" content="#4c4fc8">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Flow Matching Reinforcement Learning via SDE Inference">
   <meta property="og:description" content="Stochastic training. Deterministic deployment. A unified framework and theoretical guarantees for flow matching RL.">
@@ -14,6 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="{{SITE_URL}}">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/manrope.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script defer src="app.js"></script>
 </head>
@@ -21,31 +22,51 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav-wrap" aria-label="Page sections">
-      <a class="wordmark" href="#top">Flow RL via SDE Inference</a>
-      <div class="nav-links"><a href="#framework">Framework</a><a href="#theory">Theory</a><a href="#experiments">Experiments</a><a href="#citation">Citation</a></div>
+      <a class="wordmark" href="#top">FM / RL</a>
+      <div class="nav-links"><a href="#transfer-lab">Explore</a><a href="#framework">Framework</a><a href="#experiments">Results</a><a href="#citation">Citation</a></div>
     </nav>
   </header>
   <main id="main">
     <section class="hero container" id="top" aria-labelledby="paper-title">
-      <p class="eyebrow">Flow matching &middot; Reinforcement learning</p>
-      <h1 id="paper-title">Flow Matching Reinforcement Learning via SDE Inference</h1>
+      <h1 id="paper-title"><span class="title-line">Flow Matching</span><span class="title-line">Reinforcement Learning</span><span class="title-line">via SDE Inference</span></h1>
+      <p class="paper-tagline">Stochastic training. Deterministic deployment.</p>
       <div class="authors" aria-label="Authors in paper order">
         <span>Maojiang Su<sup>1,*</sup></span><span>Tsung-En Lin<sup>2,*</sup></span><span>Jerry Yao-Chieh Hu<sup>1,*</sup></span><span>Guo Ye<sup>1</sup></span><span>Haoran Lu<sup>1</sup></span><span>Shang Wu<sup>1</sup></span><span>Zhaoran Wang<sup>1</sup></span><span>Han Liu<sup>1</sup></span>
       </div>
       <p class="affiliations"><sup>1</sup> Northwestern University <span aria-hidden="true">&middot;</span> <sup>2</sup> National Taiwan University</p>
       <p class="contribution">* Equal contribution</p>
       <div class="resource-links" aria-label="Research resources">
-        <a class="button primary" href="paper.pdf" target="_blank" rel="noopener">Read the paper</a>
+        <a class="button primary" href="paper.pdf" target="_blank" rel="noopener">Read paper</a>
         <a class="button" href="{{REPOSITORY_URL}}" target="_blank" rel="noopener">Code</a>
-        <a class="button" href="{{REPOSITORY_URL}}/blob/main/docs/REPRODUCIBILITY.md" target="_blank" rel="noopener">Reproduce results</a>
+        <a class="button" href="{{REPOSITORY_URL}}/blob/main/docs/REPRODUCIBILITY.md" target="_blank" rel="noopener">Reproduce</a>
         <a class="button" href="#citation">BibTeX</a>
       </div>
-      <p class="hero-summary"><strong>Train with stochastic SDE inference. Deploy with the original ODE.</strong> A unified framework connects flow-based RL methods and explains when their improvements transfer to deterministic deployment.</p>
       <p class="version">Manuscript updated November 18, 2026</p>
     </section>
 
+    <section class="container transfer-section" id="transfer-lab" aria-labelledby="transfer-title">
+      <div class="section-heading centered"><p class="eyebrow">Explore the recorded results</p><h2 id="transfer-title">Better pretraining.<br>Closer SDE and ODE rewards.</h2><p class="section-deck">Switch between three base models to see how training-time SDE rewards compare with ODE deployment.</p></div>
+      <div class="reward-lab" id="reward-lab" aria-busy="true">
+        <div class="lab-plot">
+          <div class="plot-header"><h3 id="reward-plot-title">SDE training. ODE evaluation.</h3><div class="plot-tools"><div class="plot-legend" aria-label="Plot legend"><span><i class="legend-line sde"></i>SDE</span><span><i class="legend-line ode"></i>ODE</span></div><button class="text-button" id="reset-lab" type="button">Reset</button></div></div>
+          <div class="canvas-wrap"><canvas id="reward-canvas" role="img" aria-label="Recorded CIFAR-10 reward trajectories for SDE and ODE inference, averaged over three seeds. Select a base model and fine-tuning update with the controls below.">Mean SDE and ODE reward trajectories across eighty fine-tuning updates. The complete figures are also available below.</canvas></div>
+        </div>
+        <div class="lab-controls">
+          <div class="quality-control"><div class="control-title"><span>Pretraining quality</span><output id="quality-value">Strong</output></div><div class="quality-presets" role="group" aria-label="Pretrained base model"><button type="button" data-model="weak" aria-pressed="false">Weak</button><button type="button" data-model="medium" aria-pressed="false">Medium</button><button type="button" data-model="strong" aria-pressed="true">Strong</button></div><p>Same architecture. Different pretraining checkpoints.</p></div>
+          <div class="update-control"><div class="control-title"><label for="update-slider">Fine-tune update</label><output for="update-slider" id="update-value">80</output></div><input id="update-slider" type="range" min="1" max="80" step="1" value="80" aria-describedby="update-help"><p id="update-help">Move the cursor to inspect a recorded update.</p></div>
+        </div>
+      </div>
+      <div class="lab-results" aria-label="Recorded reward and transfer measurements">
+        <section class="result-group" aria-labelledby="reward-group-title"><h3 id="reward-group-title">Reward at the selected update</h3><div class="metric-pair"><div class="metric"><span>SDE reward</span><strong id="metric-sde">&mdash;</strong></div><div class="metric"><span>ODE reward</span><strong id="metric-ode">&mdash;</strong></div></div></section>
+        <section class="result-group" aria-labelledby="transfer-group-title"><h3 id="transfer-group-title">Transfer &amp; model fidelity</h3><div class="metric-pair"><div class="metric"><span>Violation rate <span class="metric-qualifier">(all updates)</span></span><strong id="metric-violation">&mdash;</strong></div><div class="metric"><span>Monitored FM loss</span><strong id="metric-fm">&mdash;</strong></div></div></section>
+      </div>
+      <p class="lab-observation" id="lab-observation">The curves use the nine original CIFAR-10 histories included with the paper code.</p>
+      <p class="lab-source" id="lab-source">Means and one-standard-deviation bands over seeds 42, 43, and 44. The violation rate is computed from consecutive changes after seed averaging.</p>
+      <p class="lab-status" id="lab-status" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="container framework-section" id="framework" aria-labelledby="framework-title">
-      <div class="section-heading"><p class="eyebrow">The framework</p><h2 id="framework-title">An inference process becomes an RL policy.</h2></div>
+      <div class="section-heading"><p class="eyebrow">The framework</p><h2 id="framework-title">Stochastic inference.<br>One RL framework.</h2><p>A unified view connects generative-model fine-tuning and flow-policy optimization through the inner MDP induced by SDE inference.</p></div>
       <figure class="framework-figure">
         <a href="assets/framework.png" target="_blank" rel="noopener" aria-label="View the framework schematic at full size"><img src="assets/framework.png" width="1410" height="450" alt="SDE inference defines a Gaussian inner MDP. A terminal reward gives flow matching RL, and composition with an environment gives flow policy optimization." fetchpriority="high"></a>
         <figcaption>Stochastic inference defines an inner MDP. The same construction supports generative-model fine-tuning and flow-policy optimization in an environment.</figcaption>
@@ -74,7 +95,7 @@
 
     <section class="theory-section" id="theory" aria-labelledby="theory-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Theoretical foundations</p><h2 id="theory-title">When does stochastic training transfer?</h2><p>The analysis separates the inference mismatch from the reward improvement achieved by RL.</p></div>
+        <div class="section-heading"><p class="eyebrow">Theoretical foundations</p><h2 id="theory-title">When does stochastic<br>training transfer?</h2><p>The analysis separates the inference mismatch from the reward improvement achieved by RL.</p></div>
         <div class="two-column theory-grid">
           <article><span class="theorem-label">Correctness &middot; Theorem 4.1</span><h3>Small flow-matching error controls the inference gap.</h3><div class="equation">TV(p<sub>T</sub>, q<sub>T</sub>) &le; O(&radic;&epsilon;)</div><p>When the learned velocity approximates the reference flow well, SDE and ODE inference induce close terminal distributions. Here &epsilon; is the square root of the integrated squared velocity error.</p></article>
           <article><span class="theorem-label">Performance transfer &middot; Theorem 4.2</span><h3>SDE improvements transfer beyond the mismatch penalty.</h3><div class="equation transfer-equation">J<sub>ODE</sub>(&theta;<sub>k+1</sub>) &ge; J<sub>ODE</sub>(&theta;<sub>k</sub>) + &Delta;<sub>k</sub> &minus; 2R(&delta;<sub>k</sub> + &delta;<sub>k+1</sub>)</div><p>For a bounded terminal reward, deployment improves when the SDE reward gain exceeds the distributional mismatch penalties at the old and new parameters.</p></article>
@@ -84,7 +105,7 @@
     </section>
 
     <section class="container experiments-section" id="experiments" aria-labelledby="experiments-title">
-      <div class="section-heading"><p class="eyebrow">Experimental studies</p><h2 id="experiments-title">From Gaussian bridges to control and images.</h2></div>
+      <div class="section-heading"><p class="eyebrow">Experimental studies</p><h2 id="experiments-title">Gaussian bridges.<br>Control. Image generation.</h2></div>
       <article class="experiment"><div class="experiment-heading"><h3>Synthetic validation</h3><span>Sections 5.1&ndash;5.2</span></div><p>Gaussian bridges make the reference velocity available analytically. Varying pretraining quality reveals the SDE&ndash;ODE distribution gap and the reliability of one-step reward transfer.</p>
         <figure><a href="assets/synthetic.webp" target="_blank" rel="noopener" aria-label="View the synthetic validation plots at full size"><img src="assets/synthetic.webp" width="1888" height="616" alt="TV distance versus flow-matching error, transfer violation rates, and paired SDE and ODE reward trajectories." loading="lazy"></a><figcaption>Published synthetic results: distributional error scaling, transfer violations, and reward trajectories. Original plot labels are reproduced from the paper; the repository documents the error-axis convention.</figcaption></figure>
       </article>
@@ -109,6 +130,6 @@
   note   = {Manuscript updated November 18, 2026}
 }</code></pre><div class="citation-footer"><a href="citation.bib" download>Download BibTeX</a><span id="copy-status" role="status" aria-live="polite"></span></div></section>
   </main>
-  <footer class="site-footer"><div class="container"><p>Flow Matching Reinforcement Learning via SDE Inference</p><p>Project-page lineage: <a href="https://nerfies.github.io/">Nerfies</a> &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>. Paper and code retain their respective rights and licenses.</p></div></footer>
+  <footer class="site-footer"><div class="container"><p>Flow Matching Reinforcement Learning via SDE Inference</p><p>Project-page lineage: <a href="https://nerfies.github.io/">Nerfies</a> &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>. Paper and code retain their respective rights and licenses. Manrope is distributed under the <a href="assets/Manrope-OFL.txt">SIL Open Font License</a>.</p></div></footer>
 </body>
 </html>

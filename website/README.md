@@ -12,7 +12,7 @@ python scripts/check_website.py
 python -m http.server 8765 --bind 127.0.0.1 --directory .site
 ```
 
-Open `http://127.0.0.1:8765/`. The page is buildless HTML, CSS, and JavaScript; no Node packages, trackers, external fonts, or runtime services are required. The small Python build uses only the standard library.
+Open `http://127.0.0.1:8765/`. The page is buildless HTML, CSS, and JavaScript; no Node packages, trackers, external fonts, or runtime services are required. The small Python build uses only the standard library. The page self-hosts Manrope, with its SIL Open Font License included.
 
 ## Content and publishing
 
@@ -23,3 +23,7 @@ Open `http://127.0.0.1:8765/`. The page is buildless HTML, CSS, and JavaScript; 
 - All asset paths are relative so the site works under a project URL such as `/flow_sde/`.
 
 This continues the existing Nerfies-inspired academic project page. Template lineage and the CC BY-SA 4.0 notice remain in the footer; the paper and code retain their respective rights and licenses.
+
+## Interactive recorded-results viewer
+
+The indigo, Manrope typography and rounded experiment panels follow the requested research-lab design. The CIFAR viewer is generated from the nine distributed histories at build time: seed means and population standard deviations are computed for all 80 updates. Controls select Weak/Medium/Strong and the inspected update; they do not simulate new runs. Conditional violations are counted after seed averaging, matching Section 5.4. `?model=weak&update=40` shares a selected view.
