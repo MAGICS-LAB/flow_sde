@@ -2,7 +2,32 @@ name: CPU tests and paper artifacts
 
 on:
   push:
+    paths:
+      - 'CIFAR32Exp/**'
+      - 'FMPO_Evaluation/**'
+      - 'NumericalExp/**'
+      - 'scripts/run_tests.py'
+      - 'scripts/verify_artifacts.py'
+      - 'scripts/make_manifest.py'
+      - 'docs/artifacts.json'
+      - 'docs/paper.pdf'
+      - 'requirements*.txt'
+      - '.gitattributes'
+      - '.github/workflows/tests.yml'
   pull_request:
+    paths:
+      - 'CIFAR32Exp/**'
+      - 'FMPO_Evaluation/**'
+      - 'NumericalExp/**'
+      - 'scripts/run_tests.py'
+      - 'scripts/verify_artifacts.py'
+      - 'scripts/make_manifest.py'
+      - 'docs/artifacts.json'
+      - 'docs/paper.pdf'
+      - 'requirements*.txt'
+      - '.gitattributes'
+      - '.github/workflows/tests.yml'
+  workflow_dispatch:
 
 jobs:
   tests:

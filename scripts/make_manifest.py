@@ -38,7 +38,7 @@ def file_entry(path):
 def expand(patterns):
     paths = {Path(p).resolve() for pattern in patterns
              for p in glob.glob(str(ROOT / pattern), recursive=True) if Path(p).is_file()}
-    return [file_entry(path) for path in sorted(paths)]
+    return [file_entry(path) for path in sorted(paths, key=lambda item: item.as_posix())]
 
 
 def build_manifest(checkpoints=()):

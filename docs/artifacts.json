@@ -10,31 +10,6 @@
     "Figure 2(c)": [],
     "Figure 3": [
       {
-        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_42_progress.csv",
-        "bytes": 1520,
-        "sha256": "69e3670887de9173bc3ac36f2c8aa7f37a7d78259777ccfa0a7ccced3f08f2a4"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_43_progress.csv",
-        "bytes": 1528,
-        "sha256": "62e01b254775cb79f1913321e379d1ef09262737f878377e5871c8aafb5efd57"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_44_progress.csv",
-        "bytes": 1534,
-        "sha256": "d3c7798412837f30262afd0180175d6db0cf84f9a73421426174c2ab3d5d3ffe"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_45_progress.csv",
-        "bytes": 1525,
-        "sha256": "71afb20154a3766c7d107da43647106249139fce571ff202ae015676198433ca"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_46_progress.csv",
-        "bytes": 1541,
-        "sha256": "188fa5b2526ed1ffb3cbcadb9b9987796abb10012a405300e245e226227f74e9"
-      },
-      {
         "path": "FMPO_Evaluation/exp_data/antv2_FlowSDE/seed_42_progress.csv",
         "bytes": 18757,
         "sha256": "cba76da8473f042cec112f8dab4a187409147cd5d776db486677e1194732d25b"
@@ -58,6 +33,31 @@
         "path": "FMPO_Evaluation/exp_data/antv2_FlowSDE/seed_46_progress.csv",
         "bytes": 18730,
         "sha256": "a953c9a7f20ea0352c54393321ad22fa2b3e31d82b884cb8385b7b1a42bf1fbc"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_42_progress.csv",
+        "bytes": 1520,
+        "sha256": "69e3670887de9173bc3ac36f2c8aa7f37a7d78259777ccfa0a7ccced3f08f2a4"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_43_progress.csv",
+        "bytes": 1528,
+        "sha256": "62e01b254775cb79f1913321e379d1ef09262737f878377e5871c8aafb5efd57"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_44_progress.csv",
+        "bytes": 1534,
+        "sha256": "d3c7798412837f30262afd0180175d6db0cf84f9a73421426174c2ab3d5d3ffe"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_45_progress.csv",
+        "bytes": 1525,
+        "sha256": "71afb20154a3766c7d107da43647106249139fce571ff202ae015676198433ca"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/antv2_chainppo/seed_46_progress.csv",
+        "bytes": 1541,
+        "sha256": "188fa5b2526ed1ffb3cbcadb9b9987796abb10012a405300e245e226227f74e9"
       },
       {
         "path": "FMPO_Evaluation/exp_data/antv2_reinflow/seed_42_progress.csv",
@@ -85,31 +85,6 @@
         "sha256": "86e4c606254d78d1dbb102e97e55eaff28d93e3eb30f4d8d2d7974f068d86db1"
       },
       {
-        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_42_progress.csv",
-        "bytes": 1471,
-        "sha256": "40768e39b5a0b57a3a513d8eaeb20fd070b241a581065ba952370b6bcc16fe3e"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_43_progress.csv",
-        "bytes": 1475,
-        "sha256": "44b5e1c012ddb1b4e2adcd86bb687f3ee13403e009598f1f828a9c559d012303"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_44_progress.csv",
-        "bytes": 1462,
-        "sha256": "07cbe87c6e93ea5343d6288ad261ca91b6e39bda8e5cf7f202018a4cb73f534b"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_45_progress.csv",
-        "bytes": 1480,
-        "sha256": "7425318fe2befb5f9cbd9736226905da9c7c8a89ba142ce1dcc49b47a7b1d18e"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_46_progress.csv",
-        "bytes": 1476,
-        "sha256": "4b69a80475494e7f6d05cb5261973d2726efba665c42e6260872746b0a863164"
-      },
-      {
         "path": "FMPO_Evaluation/exp_data/hopperv2_FlowSDE/seed_42_progress.csv",
         "bytes": 18324,
         "sha256": "7fe682467b34459e1faa6842e43001ed168bf1bada1d469b7e6a171e76a4fbdd"
@@ -133,6 +108,31 @@
         "path": "FMPO_Evaluation/exp_data/hopperv2_FlowSDE/seed_46_progress.csv",
         "bytes": 18335,
         "sha256": "0caa8f73a4fca8f7834b999ca36512797f36038b318362b8d56997bdba5b5b82"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_42_progress.csv",
+        "bytes": 1471,
+        "sha256": "40768e39b5a0b57a3a513d8eaeb20fd070b241a581065ba952370b6bcc16fe3e"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_43_progress.csv",
+        "bytes": 1475,
+        "sha256": "44b5e1c012ddb1b4e2adcd86bb687f3ee13403e009598f1f828a9c559d012303"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_44_progress.csv",
+        "bytes": 1462,
+        "sha256": "07cbe87c6e93ea5343d6288ad261ca91b6e39bda8e5cf7f202018a4cb73f534b"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_45_progress.csv",
+        "bytes": 1480,
+        "sha256": "7425318fe2befb5f9cbd9736226905da9c7c8a89ba142ce1dcc49b47a7b1d18e"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/hopperv2_chainppo/seed_46_progress.csv",
+        "bytes": 1476,
+        "sha256": "4b69a80475494e7f6d05cb5261973d2726efba665c42e6260872746b0a863164"
       },
       {
         "path": "FMPO_Evaluation/exp_data/hopperv2_reinflow/seed_42_progress.csv",
@@ -160,31 +160,6 @@
         "sha256": "cdaf4d475f58990ff538486e1f8ddce8904722baf1292b6b1ba059112413ccb1"
       },
       {
-        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_42_progress.csv",
-        "bytes": 1506,
-        "sha256": "e46e51585397428c51850385ddceb2bb4b53d7fe6cdb9480a6b5f5ca57efa2e3"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_43_progress.csv",
-        "bytes": 1505,
-        "sha256": "e1b68614c3d1e0a78e0fcec4981b416eedb30d715d2b74cd44b5dedd901197d5"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_44_progress.csv",
-        "bytes": 1500,
-        "sha256": "6107eacd22d67bc69fe330cf8fac35301198d8c93c87dcde00ca6a06559e6f45"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_45_progress.csv",
-        "bytes": 1503,
-        "sha256": "89963dc39426c0f25f580e6a9f55e108591fdb5e878af13bd4d63dcc19bf93d1"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_46_progress.csv",
-        "bytes": 1508,
-        "sha256": "036ae41f035c995e5b25b18e03e82bd7a84afbce5205fb769012c773784b87b1"
-      },
-      {
         "path": "FMPO_Evaluation/exp_data/humanoidv3_FlowSDE/seed_42_progress.csv",
         "bytes": 18983,
         "sha256": "06e144ac3458dcf66d55a27ae8da86e3b91971c1b84a7341c238c820e91818e5"
@@ -208,6 +183,31 @@
         "path": "FMPO_Evaluation/exp_data/humanoidv3_FlowSDE/seed_46_progress.csv",
         "bytes": 18979,
         "sha256": "e797a0c2f66f57fb2bfe80fc9904aaac749d00bd193639ec1c255bfba5b57dc2"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_42_progress.csv",
+        "bytes": 1506,
+        "sha256": "e46e51585397428c51850385ddceb2bb4b53d7fe6cdb9480a6b5f5ca57efa2e3"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_43_progress.csv",
+        "bytes": 1505,
+        "sha256": "e1b68614c3d1e0a78e0fcec4981b416eedb30d715d2b74cd44b5dedd901197d5"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_44_progress.csv",
+        "bytes": 1500,
+        "sha256": "6107eacd22d67bc69fe330cf8fac35301198d8c93c87dcde00ca6a06559e6f45"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_45_progress.csv",
+        "bytes": 1503,
+        "sha256": "89963dc39426c0f25f580e6a9f55e108591fdb5e878af13bd4d63dcc19bf93d1"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/humanoidv3_chainppo/seed_46_progress.csv",
+        "bytes": 1508,
+        "sha256": "036ae41f035c995e5b25b18e03e82bd7a84afbce5205fb769012c773784b87b1"
       },
       {
         "path": "FMPO_Evaluation/exp_data/humanoidv3_reinflow/seed_42_progress.csv",
@@ -235,31 +235,6 @@
         "sha256": "b2bfe214223dc5daf5a094b156a46f233a49eee628e573ea859097d98476ea45"
       },
       {
-        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_42_progress.csv",
-        "bytes": 1472,
-        "sha256": "d06948ccb3021cfad53b5a132408a13c3ee55a569db37ca4a70fd72a111b432a"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_43_progress.csv",
-        "bytes": 1474,
-        "sha256": "8f8df2850972551a01c1adf3c7e98e088529ae604ce02664f7699ccd87eb6a00"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_44_progress.csv",
-        "bytes": 1482,
-        "sha256": "e4b4497cf72779c551b67121b5ec509004a8b470c0ddec565a8610bc4c89b599"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_45_progress.csv",
-        "bytes": 1481,
-        "sha256": "cfde868d47bf50a1576da7564a6920e184ae3212db0dc474c1b262bd4884f074"
-      },
-      {
-        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_46_progress.csv",
-        "bytes": 1478,
-        "sha256": "c48ce75cb8bb2ef2676bf91865fe79eddfa48ad93ef67bbc683b2415d6ad3030"
-      },
-      {
         "path": "FMPO_Evaluation/exp_data/walker2d_FlowSDE/seed_42_progress.csv",
         "bytes": 18873,
         "sha256": "4784c34a3ac54ff4f2caab18e49f56690af625ff5e3030a4331be29f2a1a53be"
@@ -283,6 +258,31 @@
         "path": "FMPO_Evaluation/exp_data/walker2d_FlowSDE/seed_46_progress.csv",
         "bytes": 18810,
         "sha256": "beeecf91c2d9543e571f8a20ef62e962bcd37ca5f27f9aad3f1eabc8a9b30d48"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_42_progress.csv",
+        "bytes": 1472,
+        "sha256": "d06948ccb3021cfad53b5a132408a13c3ee55a569db37ca4a70fd72a111b432a"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_43_progress.csv",
+        "bytes": 1474,
+        "sha256": "8f8df2850972551a01c1adf3c7e98e088529ae604ce02664f7699ccd87eb6a00"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_44_progress.csv",
+        "bytes": 1482,
+        "sha256": "e4b4497cf72779c551b67121b5ec509004a8b470c0ddec565a8610bc4c89b599"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_45_progress.csv",
+        "bytes": 1481,
+        "sha256": "cfde868d47bf50a1576da7564a6920e184ae3212db0dc474c1b262bd4884f074"
+      },
+      {
+        "path": "FMPO_Evaluation/exp_data/walker2d_chainppo/seed_46_progress.csv",
+        "bytes": 1478,
+        "sha256": "c48ce75cb8bb2ef2676bf91865fe79eddfa48ad93ef67bbc683b2415d6ad3030"
       },
       {
         "path": "FMPO_Evaluation/exp_data/walker2d_reinflow/seed_42_progress.csv",

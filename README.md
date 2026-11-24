@@ -4,7 +4,7 @@
 
 \* Equal contribution
 
-[Paper](docs/paper.pdf) | [Project page source](website/) | [Reproduction guide](docs/REPRODUCIBILITY.md) | [Experiment map](docs/EXPERIMENTS.md) | [Citation](CITATION.cff)
+[Paper](docs/paper.pdf) | [Project page](https://magics-lab.github.io/flow_sde/) | [Reproduction guide](docs/REPRODUCIBILITY.md) | [Experiment map](docs/EXPERIMENTS.md) | [Citation](CITATION.cff)
 
 Research code for the manuscript updated **November 18, 2026**. The framework treats stochastic flow inference as an inner MDP, connects it to policy optimization in an environment, and studies when improvements under training-time SDE inference transfer to deployment-time ODE inference. FMPO-CPPO combines a chain-level PPO surrogate with an auxiliary step-wise surrogate.
 
